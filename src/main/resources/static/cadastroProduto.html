@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Exemplo de formulário para checkout usando Bootstrap</title>
+    <title>Cadastro de Produto Bella Pizza</title>
 
     <!-- Principal CSS do Bootstrap -->
     <link href="https://getbootstrap.com.br/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,223 +18,78 @@
   </head>
 
   <body class="bg-light">
-
-    <div class="container">
-      <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>Formulário de checkout</h2>
-        <p class="lead">Abaixo temos um exemplo de formulário construído com controles de formulário Bootstrap. Cada campo obrigatório possui um estado de validação que é ativado quando tenta-se enviar o formulário sem completá-lo.</p>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Seu carrinho</span>
-            <span class="badge badge-secondary badge-pill">3</span>
-          </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Nome do produto</h6>
-                <small class="text-muted">Breve descrição</small>
-              </div>
-              <span class="text-muted">R$12</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Segundo produto</h6>
-                <small class="text-muted">Breve descrição</small>
-              </div>
-              <span class="text-muted">R$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Terceiro item</h6>
-                <small class="text-muted">Breve descrição</small>
-              </div>
-              <span class="text-muted">R$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between bg-light">
-              <div class="text-success">
-                <h6 class="my-0">Código de promoção</h6>
-                <small>CODIGOEXEMEPLO</small>
-              </div>
-              <span class="text-success">-R$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (BRL)</span>
-              <strong>R$20</strong>
-            </li>
-          </ul>
-
-          <form class="card p-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Código promocional">
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">Resgatar</button>
-              </div>
+        <form class="card p-2">
+            </div>
             </div>
           </form>
         </div>
-        <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Endereço de cobrança</h4>
-          <form class="needs-validation" novalidate>
-            <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="primeiroNome">Nome</label>
-                <input type="text" class="form-control" id="primeiroNome" placeholder="" value="" required>
+                <label for="nomeProduto">Nome do Produto</label>
+                <input type="text" class="form-control" id="nomeProduto" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   É obrigatório inserir um nome válido.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="sobrenome">Sobrenome</label>
-                <input type="text" class="form-control" id="sobrenome" placeholder="" value="" required>
+                <label for="descricao">Descrição do Produto</label>
+                <input type="text" class="form-control" id="descricao" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  É obrigatório inserir um sobre nome válido.
+                  É obrigatório inserir uma descrição válida.
                 </div>
               </div>
+           
+
+            </div>
             </div>
 
-            <div class="mb-3">
-              <label for="nickname">Nickname</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">@</span>
-                </div>
-                <input type="text" class="form-control" id="nickname" placeholder="Nickname" required>
-                <div class="invalid-feedback" style="width: 100%;">
-                  Seu nickname é obrigatório.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="email">Email <span class="text-muted">(Opcional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="fulano@exemplo.com">
+           <div class="col-md-6 mb-3">
+              <label for="valor">Valor do Produto</label>
+              <input type="number" class="form-control" id="valor" required>
               <div class="invalid-feedback">
-                Por favor, insira um endereço de e-mail válido, para atualizações de entrega.
+                Por favor, insira o valor do produto.
               </div>
             </div>
-
-            <div class="mb-3">
-              <label for="endereco">Endereço</label>
-              <input type="text" class="form-control" id="endereco" placeholder="Rua dos bobos, nº 0" required>
-              <div class="invalid-feedback">
-                Por favor, insira seu endereço de entrega.
+            
+           
               </div>
             </div>
-
-            <div class="mb-3">
-              <label for="endereco2">Endereço 2 <span class="text-muted">(Opcional)</span></label>
-              <input type="text" class="form-control" id="endereco2" placeholder="Apartamento ou casa">
-            </div>
-
-            <div class="row">
-              <div class="col-md-5 mb-3">
-                <label for="pais">País</label>
-                <select class="custom-select d-block w-100" id="pais" required>
-                  <option value="">Escolha...</option>
-                  <option>Brasil</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor, escolha um país válido.
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="estado">Estado</label>
-                <select class="custom-select d-block w-100" id="estado" required>
-                  <option value="">Escolha...</option>
-                  <option>Acre</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor, insira um estado válido.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="cep">CEP</label>
-                <input type="text" class="form-control" id="cep" placeholder="" required>
-                <div class="invalid-feedback">
-                  É obrigatório inserir um CEP.
-                </div>
+            
               </div>
             </div>
             <hr class="mb-4">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="mesmo-endereco">
-              <label class="custom-control-label" for="mesmo-endereco">Endereço de entrega é o mesmo que o de cobrança.</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="salvar-info">
-              <label class="custom-control-label" for="salvar-info">Lembrar desta informação, na próxima vez.</label>
-            </div>
-            <hr class="mb-4">
-
-            <h4 class="mb-3">Pagamento</h4>
-
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="credito" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                <label class="custom-control-label" for="credito">Cartão de crédito</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="debito" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="debito">Cartão de débito</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="paypal">PayPal</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="cc-nome">Nome no cartão</label>
-                <input type="text" class="form-control" id="cc-nome" placeholder="" required>
-                <small class="text-muted">Nome completo, como mostrado no cartão.</small>
-                <div class="invalid-feedback">
-                  O nome que está no cartão é obrigatório.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="cc-numero">Número do cartão de crédito</label>
-                <input type="text" class="form-control" id="cc-numero" placeholder="" required>
-                <div class="invalid-feedback">
-                  O número do cartão de crédito é obrigatório.
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiracao">Data de expiração</label>
-                <input type="text" class="form-control" id="cc-expiracao" placeholder="" required>
-                <div class="invalid-feedback">
-                  Data de expiração é obrigatória.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="cc-cvv">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                <div class="invalid-feedback">
-                  Código de segurança é obrigatório.
-                </div>
-              </div>
-            </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue o checkout</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="salvar()">Cadastrar</button>
           </form>
         </div>
       </div>
 
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Nome da companhia</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacidade</a></li>
-          <li class="list-inline-item"><a href="#">Termos</a></li>
-          <li class="list-inline-item"><a href="#">Suporte</a></li>
-        </ul>
-      </footer>
+      
     </div>
 
+    <table class="table">
+      <thead>
+          <tr>
+              <th>
+                  Produto
+              </th>
+              <th>
+                  Descrição 
+              </th>
+              <th>  
+                Valor
+              </th>
+              <th>  
+                Ações
+              </th>
+          </tr>
+      </thead>
+      <tbody id="corpoTabela">
+
+      </tbody>
+  </table>
+
+
+
+   
     <!-- Principal JavaScript do Bootstrap
     ================================================== -->
     <!-- Foi colocado no final para a página carregar mais rápido -->
@@ -264,6 +119,89 @@
           });
         }, false);
       })();
+
+      let baseProduto = "";
+        xhttp = new XMLHttpRequest();
+        function buscarProduto() {
+            xhttp.open("GET", "/api/produto/");
+            xhttp.send();
+            xhttp.onload = function () 
+            {
+                atualizarTabela(this.responseText);
+            };
+        }
+        buscarProduto();
+      function atualizarTabela(produtoApi) 
+      {
+            baseProduto = JSON.parse(produtoApi);
+            console.log(baseProduto);
+            let corpoTabela = "";
+            for (i in baseProduto) 
+            {
+                let id = baseProduto[i].idProduto;
+                let nome = baseProduto[i].nomeProduto;
+                let descricao = baseProduto[i].descricaoProduto;
+                let valor = baseProduto[i].valorProduto;
+                corpoTabela += `<tr><td>${nome}</td><td>${descricao}</td><td>${valor}</td><td><input type="button" class="btn btn-danger" name="excluir" value="Excluir" onclick="excluir(${i})"><input type="button" class="btn btn-warning" name="editar" value="Editar" onclick="editar(${id})"></td></tr>`;
+            }
+            document.getElementById("corpoTabela").innerHTML = corpoTabela;
+        }
+        function salvarProduto(produto) 
+        {
+
+          xhttp.open("POST", "/api/produto/");
+          xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+          xhttp.send(JSON.stringify(produto));
+          xhttp.onload = function () 
+          {
+            limparForm();
+            buscarQuiz();
+          };
+        }
+        function salvar()
+        {
+            //alert("Entrou no salvar");
+            let lista = document.querySelectorAll('input');
+            
+            alert(lista);
+                alerta.innerHTML = "Novo Produto Cadastrado";
+                alerta.classList.remove("alert-danger");
+                alerta.classList.add("alert-success");
+                console.log(lista);
+                salvarProduto(lista);
+        }
+        
+      function excluirProduto(idProduto)
+      {
+        
+      }
+      
+      function limparFormulario()
+      {
+            let lista = document.querySelectorAll('input');
+            for (i in lista) 
+            {
+                if (i >= 0 && i <= 4) 
+                {
+                    lista[i].value = "";
+                }
+                if (i >= 5 && i <= 8) 
+                {
+                    lista[i].checked = false;
+                }
+                if (i >= 9) 
+                {
+                    lista[i].value = "";
+                }
+            }
+      }
+
+      function limparAlerta() 
+      {
+            document.querySelector("#alerta").innerHTML = "";
+            document.querySelector("#alerta").classList.remove('alert-danger');
+            document.querySelector("#alerta").classList.remove('alert-success');
+      }
     </script>
   </body>
 </html>

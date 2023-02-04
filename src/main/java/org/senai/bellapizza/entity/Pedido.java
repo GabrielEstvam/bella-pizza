@@ -13,13 +13,11 @@ public class Pedido
     private Integer idPedido;
     private String nomeCliente;
     private String enderecoCliente;
-
-    public Integer getIdPedido() 
-    {
+    private Integer produto;
+    public Integer getIdPedido() {
         return idPedido;
     }
-    public void setIdPedido(Integer idPedido) 
-    {
+    public void setIdPedido(Integer idPedido) {
         this.idPedido = idPedido;
     }
     public String getNomeCliente() {
@@ -34,20 +32,13 @@ public class Pedido
     public void setEnderecoCliente(String enderecoCliente) {
         this.enderecoCliente = enderecoCliente;
     }
-    public Double getValorPedido() {
-        return valorPedido;
-    }
-    public void setValorPedido(Double valorPedido) {
-        this.valorPedido = valorPedido;
-    }
-    public String getProduto() {
+    public Integer getProduto() {
         return produto;
     }
-    public void setProduto(String produto) {
+    public void setProduto(Integer produto) {
         this.produto = produto;
     }
-    private Double valorPedido;
-    private String produto;
-    
+
+   
     
 }

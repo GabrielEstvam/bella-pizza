@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -7,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Cadastro de Produto Bella Pizza</title>
+    <title>Cadastro de Pedidos Bella Pizza</title>
 
     <!-- Principal CSS do Bootstrap -->
     <link href="https://getbootstrap.com.br/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,30 +24,30 @@
           </form>
         </div>
               <div class="col-md-6 mb-3">
-                <label for="nomeProduto">Nome do Produto</label>
+                <label for="nomeCliente">Nome</label>
                 <input type="text" class="form-control" id="produto" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   É obrigatório inserir um nome válido.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="descricao">Descrição do Produto</label>
+                <label for="descricao">Endereço</label>
                 <input type="text" class="form-control" id="produto" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  É obrigatório inserir uma descrição válida.
+                  É obrigatório inserir um Endereço válido.
                 </div>
+                <div class="col-md-6 mb-3">
+                  <label for="descricao">Digite o código do produto que deseja pedir</label>
+                  <input type="number" class="form-control" id="produto" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    É obrigatório inserir um código
+                  </div>
               </div>
            
 
             </div>
             </div>
-
-           <div class="col-md-6 mb-3">
-              <label for="valor">Valor do Produto</label>
-              <input type="number" class="form-control" id="produto" required>
-              <div class="invalid-feedback">
-                Por favor, insira o valor do produto.
-              </div>
+              
               <input type="hidden" id="id" value="">
               <input type="hidden" id="index" value="">
             </div>
@@ -58,7 +59,7 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="salvar()">Cadastrar</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="salvar()">PEDIR</button>
           </form>
         </div>
       </div>
@@ -79,11 +80,9 @@
                   Descrição 
               </th>
               <th>  
-                Valor
+                Valor(R$)
               </th>
-              <th>  
-                Ações
-              </th>
+             
           </tr>
       </thead>
       <tbody id="corpoTabela">
@@ -107,12 +106,13 @@
       (function() {
         'use strict';
 
-        window.addEventListener('load', function() {
-          // Selecione todos os campos que nós queremos aplicar estilos Bootstrap de validação customizados.
-          var forms = document.getElementsByClassName('needs-validation');
+        window.addEventListener('load', function()
+         {
+         var forms = document.getElementsByClassName('needs-validation');
 
-          // Faz um loop neles e previne envio
-          var validation = Array.prototype.filter.call(forms, function(form) {
+          
+          var validation = Array.prototype.filter.call(forms, function(form) 
+          {
             form.addEventListener('submit', function(event) {
               if (form.checkValidity() === false) {
                 event.preventDefault();
@@ -146,14 +146,14 @@
                 let nome = baseProduto[i].nomeProduto;
                 let descricao = baseProduto[i].descricaoProduto;
                 let valor = baseProduto[i].valorProduto;
-                corpoTabela += `<tr><td>${id}</td><td>${nome}</td><td>${descricao}</td><td>${valor}</td><td><input type="button" class="btn btn-danger" name="excluir" value="Excluir" onclick="excluirProduto(${id})"></tr>`;
+                corpoTabela += `<tr><td>${id}</td><td>${nome}</td><td>${descricao}</td><td>${valor}</td><td></td></tr>`;
             }
             document.getElementById("corpoTabela").innerHTML = corpoTabela;
         }
-        function salvarProduto(produto) 
+        function salvarPedido(produto) 
         {
-          alert("O Produto foi salvo!");
-          xhttp.open("POST", "/api/produto/");
+          alert("O Pedido foi salvo!");
+          xhttp.open("POST", "/api/pedido/");
           xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
           xhttp.send(JSON.stringify(produto));
           
@@ -170,20 +170,20 @@
         function salvar()
         {
           let lista = document.querySelectorAll('#produto');
-            let produto = { respostas: [] };
+            let pedido = { respostas: [] };
             let id = "";
             for (i in lista) {
                 
                 if (i == 0) {
-                  produto.nomeProduto = lista[i].value;
+                  pedido.nomeCliente = lista[i].value;
 
                 }
                 if (i == 1) {
-                  produto.descricaoProduto = lista[i].value;
+                  pedido.enderecoCliente = lista[i].value;
 
                 }
                 if (i == 2) {
-                  produto.valorProduto = lista[i].value;
+                  pedido.produto = lista[i].value;
 
                 }
                 
@@ -193,35 +193,24 @@
                 if (i == 10) {
                     index = lista[i].value;
                 }
+                
               
             }
             if (id != "") {
-              produto.idProduto = id;
+              pedido.idPedido = id;
             }
                      
             if (id != "") {
-                produto.id = id;
+              pedido.id = id;
             }
-            console.log(produto);
-            salvarProduto(produto);
+            console.log(pedido);
+            salvarPedido(pedido);
                            
         }
         
-      function excluirProduto(idProduto)
-      {
-        
-        if (confirm("Tem certeza que quer apagar este produto?")) 
-            {
-                xhttp.open("DELETE", `/api/produto/${idProduto}`);
-                xhttp.send();
-                xhttp.onload = function () 
-                {
-                    alert(this.responseText);
-                    buscarProduto();
-                    
-                };
-            }
-      }
+      
+
+      
     </script>
   </body>
 </html>

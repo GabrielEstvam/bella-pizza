@@ -1,0 +1,133 @@
+
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Gerenciamento de Pedidos Bella Pizza</title>
+
+    <!-- Principal CSS do Bootstrap -->
+    <link href="https://getbootstrap.com.br/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos customizados para esse template -->
+    <link href="https://getbootstrap.com.br/docs/4.1/examples/checkout/form-validation.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+        <form>
+          <input type="hidden" id="id" value="">
+          <input type="hidden" id="index" value="">
+
+        </form>
+           
+     <table class="table">
+      <thead>
+          <tr>
+            <th>
+              COD
+             </th>
+              <th>
+                  Cliente
+              </th>
+              <th>
+                  Endereço 
+              </th>
+              
+              <th>  
+                Produto
+              </th>
+              <th>  
+                Ações
+              </th>
+          </tr>
+      </thead>
+      <tbody id="corpoTabela">
+
+      </tbody>
+  </table>
+
+
+
+   
+    <!-- Principal JavaScript do Bootstrap
+    ================================================== -->
+    <!-- Foi colocado no final para a página carregar mais rápido -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Exemplo de JavaScript para desativar o envio do formulário, se tiver algum campo inválido.
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Selecione todos os campos que nós queremos aplicar estilos Bootstrap de validação customizados.
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Faz um loop neles e previne envio
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+
+      let basePedidos = "";
+        xhttp = new XMLHttpRequest();
+        function buscarPedidos() {
+            xhttp.open("GET", "/api/pedido/");
+            xhttp.send();
+            xhttp.onload = function () 
+            {
+                atualizarTabela(this.responseText);
+            };
+        }
+        buscarPedidos();
+      function atualizarTabela(pedidosApi) 
+      {
+            basePedidos = JSON.parse(pedidosApi);
+            console.log(basePedidos);
+            let corpoTabela = "";
+            for (i in basePedidos) 
+            {
+                let id = basePedidos[i].idPedido;
+                let nome = basePedidos[i].nomeCliente;
+                let descricao = basePedidos[i].enderecoCliente;
+                let valor = basePedidos[i].valorPedido;
+                let produtos = basePedidos[i].produto;
+                corpoTabela += `<tr><td>${id}</td><td>${nome}</td><td>${descricao}<td>${produtos}</td><td><input type="button" class="btn btn-warning" name="excluir" value="Concluir" onclick="excluirProduto(${id})"></tr>`;
+            }
+            document.getElementById("corpoTabela").innerHTML = corpoTabela;
+        }
+                
+      function excluirProduto(idProduto)
+      {
+        
+        if (confirm("Tem certeza que quer apagar este produto?")) 
+            {
+                xhttp.open("DELETE", `/api/pedido/${idProduto}`);
+                xhttp.send();
+                xhttp.onload = function () 
+                {
+                    alert(this.responseText);
+                    buscarPedidos();
+                    
+                };
+            }
+      }
+
+      
+    </script>
+  </body>
+</html>
